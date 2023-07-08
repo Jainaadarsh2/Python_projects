@@ -1,0 +1,81 @@
+import random
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+word_list =[ "aadarsh" ,"ritika","harsha","jain"]
+choice_word = random.choice(word_list)
+display=[]
+lives=6
+for _ in range(len(choice_word)):
+    display+="_"
+print(display)
+game = False
+while not game:
+    input_user = input(" guess the letters ").lower()
+    for position in range(len(choice_word)):
+            letter  = choice_word[position]
+            if letter == input_user:
+               display[position]=letter
+    if input_user not in choice_word:
+        lives -= 1
+        if lives==0:
+            game= True
+            print("you lose")
+    print(f"{' '.join(display)}")
+    if "_" not in display:
+        game = True
+        print("you won")
+    print(stages[lives])
