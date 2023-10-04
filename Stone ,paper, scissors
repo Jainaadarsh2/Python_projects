@@ -1,0 +1,27 @@
+import random
+
+while True:
+    user_decision = input('Enter the choices(stone,paper,scissors)')
+    user_possbles =["stone","paper","scissors"]
+    computer_action = random.choice(user_possbles)
+ 
+    if user_decision == computer_action:
+        print(f'Both choices {user_decision}. Its a tie')
+    elif user_decision =="stone":
+        if computer_action == "paper":
+            print("Paper covers stone! You lose.")
+        else:
+            print("stone smashes scissors! You win")
+    elif user_decision == "paper":
+        if computer_action == "stone":
+            print("Paper covers stone! You win!")
+        else:
+            print("Scissors cuts paper! You lose.")
+    elif user_decision == "scissors":
+        if computer_action == "paper":
+            print("Scissors cuts paper! You win!")
+        else:
+            print("stone smashes scissors! You lose.")
+    user_input =input("Enter the choice('Y/N')")
+    if user_input.lower() !='y':
+        break   
