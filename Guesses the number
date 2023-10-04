@@ -1,0 +1,23 @@
+import random
+class class_guessinggame:
+    def __init__(self):
+        self.NUM_LOW = 1
+        self.NUM_HIGH = 100
+    def Gus_Randomno(self):
+        return random.randint(self.NUM_LOW,self.NUM_HIGH)
+    def StartGame(self):
+        random_number = self.Gus_Randomno()
+        print(f" Guess the number from{self.NUM_LOW} to {self.NUM_HIGH}")
+        changes=0
+        while True:
+            user_number=int(input("Guess the number: "))
+            if user_number==random_number:
+                print(f"WOW you guess Right {changes+1} step{'s'if changes>1 else''}!")
+                break
+            elif user_number<random_number:
+                print("TOO LOW")
+            elif user_number>random_number:
+                print("TOO HIGH")
+            changes+=1
+num1=class_guessinggame()
+num1.StartGame()
